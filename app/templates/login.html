@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<div class="container">
+  <div class="content-section">
+    <form action="" method="POST">
+    {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">
+          Log In
+        </legend>
+        <div class="shadow p-3 mb-5 bg-body rounded">
+          <div class="form-group">
+            {{ form.username.label(class="form-control-label") }}
+            {% if form.username.errors %}
+              {{ form.username(class="form-control form-control-lg is-valid") }}
+              <div class="invalid-feedback">
+                {% for error in form.username.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.username(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+          <div class="form-group">
+            {{ form.password.label(class="form-control-label") }}
+            {% if form.password.errors %}
+              {{ form.password(class="form-control form-control-lg is-valid") }}
+              <div class="invalid-feedback">
+                {% for error in form.password.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.password(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+      </div>
+      <small class="text-muted ml-2">
+        <a href="#">Forgot password?</a>
+      </small>
+    </form>
+  </div> 
+</div>
+<br>
+<br>
+{% endblock %}

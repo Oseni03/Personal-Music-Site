@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<br>
+<br>
+<div id="latestalbum" class="hero pad">
+  <div class="container">
+  		<!-- play list -->
+      <div class="hero-content ">
+  
+    		<!-- heading -->
+  
+    		<h2>Singles</h2>
+    		<hr>
+    		<!-- paragraph -->
+    		<p>We sing the best <strong class="theme-color">Songs</strong> and now we control the world best <strong class="theme-color">Music</strong>.</p>
+    	</div>
+    	<div class="hero-playlist">
+  		  <div class="playlist-content">
+  			<ul class="list-unstyled">
+  			  {% for single in singles %}
+						<li class="playlist-number">
+							<!-- song information -->
+							<div class="song-info">
+								<!-- song title -->
+								<h4>{{ single.title }}</h4>
+								<p><strong>Type</strong>: {{ single.type }} &nbsp;|&nbsp; <strong>Singer</strong>: {{ name }}</p>
+							</div>
+							<!-- music icon -->
+							<div class="music-icon">
+							  <div class="media">
+								  <audio controls=""> <source src="{{ url_for('static', filename='audio/' + single.song_path) }}" type="audio/mpeg"> Your browser does not support audio controls </source></audio>
+							  </div>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+  				{% endfor %}
+  			</ul>
+  		</div>
+  		</div>
+  </div>
+</div>
+
+<br>
+<br>
+{% endblock content %}
